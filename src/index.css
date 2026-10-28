@@ -48,8 +48,13 @@ body {
 }
 
 /* ==========================================================================
-   CABEÇALHO E LOGOTIPO
+   CABEÇALHO E LOGOTIPO LÍMPIDO (SEM BOTÕES)
    ========================================================================== */
+.clean-header {
+  padding: 12px 20px !important;
+  margin-bottom: 20px !important;
+}
+
 .public-header {
   background-color: var(--bg-header);
   border: 1px solid var(--border-color);
@@ -71,9 +76,66 @@ body {
 }
 
 .brand-logo {
-  max-height: 110px;
+  max-height: 120px;
   width: auto;
   object-fit: contain;
+}
+
+/* Animação Suave de Transição entre as Telas do Carrossel */
+.fade-in {
+  animation: fadeInEffect 0.8s ease-in-out;
+}
+
+@keyframes fadeInEffect {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Otimização de Espaço Vertical para Tabela de Medalhas em TVs */
+.medal-table td {
+  padding: 22px 18px !important;
+  font-size: 1.4rem !important;
+}
+
+.medal-table th {
+  padding: 18px !important;
+  font-size: 1.3rem !important;
+}
+
+/* Expansão das Grades dos Jogos */
+.games-grid {
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.game-card {
+  padding: 24px !important;
+}
+
+/* Ajustes para Telas Ultra-HD e Smart TVs */
+@media (min-width: 1800px) {
+  .brand-logo {
+    max-height: 170px;
+  }
+
+  .medal-table td {
+    padding: 28px 24px !important;
+    font-size: 2rem !important;
+  }
+
+  .medal-table th {
+    font-size: 1.8rem !important;
+  }
+
+  .section-title {
+    font-size: 3.2rem !important;
+  }
 }
 
 .controls-nav {

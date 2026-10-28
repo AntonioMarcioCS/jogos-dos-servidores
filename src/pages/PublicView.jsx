@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logoJogos from "../assets/logo-jogos.jpg";
 import {
   subscribeDelegacoes,
   subscribeModalidades,
@@ -15,10 +14,11 @@ export const PublicView = () => {
   const [premiacoes, setPremiacoes] = useState([]);
 
   const [activeView, setActiveView] = useState("medalhas");
-  const [autoPlay, setAutoPlay] = useState(true);
 
+  // Tempo de transição automática entre as telas (15 segundos)
   const INTERVALO_CARROSSEL = 15000;
 
+  // Escutadores do Firestore em tempo real
   useEffect(() => {
     const unsubDel = subscribeDelegacoes(setDelegacoes);
     const unsubMod = subscribeModalidades(setModalidades);
@@ -33,15 +33,14 @@ export const PublicView = () => {
     };
   }, []);
 
+  // Transição 100% Automática do Carrossel para TV
   useEffect(() => {
-    let timer;
-    if (autoPlay) {
-      timer = setInterval(() => {
-        setActiveView((prev) => (prev === "medalhas" ? "jogos" : "medalhas"));
-      }, INTERVALO_CARROSSEL);
-    }
+    const timer = setInterval(() => {
+      setActiveView((prev) => (prev === "medalhas" ? "jogos" : "medalhas"));
+    }, INTERVALO_CARROSSEL);
+
     return () => clearInterval(timer);
-  }, [autoPlay]);
+  }, []);
 
   const getDelegacao = (id) => delegacoes.find((d) => d.id === id);
   const getNomeDelegacao = (id) => getDelegacao(id)?.nome || "A definir";
@@ -60,40 +59,21 @@ export const PublicView = () => {
 
   return (
     <div className="public-container">
-      {/* CABEÇALHO COM LOGO OFICIAL */}
-      <header className="public-header">
+      {/* CABEÇALHO COMPACTO E OTIMIZADO APENAS COM A LOGO */}
+      <header className="public-header clean-header">
         <div className="logo-wrapper">
           <img 
-            src={logoJogos} 
+            src="/logo-jogos.jpg" 
             alt="IV Jogos dos Servidores IFSertãoPE 2026" 
             className="brand-logo"
           />
-        </div>
-
-        {/* CONTROLES DO CARROSSEL */}
-        <div className="controls-nav">
-          <button
-            className={activeView === "medalhas" ? "btn-active" : ""}
-            onClick={() => setActiveView("medalhas")}
-          >
-            🥇 Quadro de Medalhas
-          </button>
-          <button
-            className={activeView === "jogos" ? "btn-active" : ""}
-            onClick={() => setActiveView("jogos")}
-          >
-            📅 Agenda de Jogos
-          </button>
-          <button className="btn-autoplay" onClick={() => setAutoPlay(!autoPlay)}>
-            {autoPlay ? "⏸️ Pausar Carrossel TV" : "▶️ Iniciar Carrossel TV"}
-          </button>
         </div>
       </header>
 
       {/* TELA 1: QUADRO DE MEDALHAS */}
       {activeView === "medalhas" && (
-        <main className="view-content">
-          <h2 className="section-title">Quadro Geral de Medalhas</h2>
+        <main className="view-content fade-in">
+          <h2 className="section-title">🥇 Quadro Geral de Medalhas</h2>
           <div className="table-responsive">
             <table className="medal-table">
               <thead>
@@ -135,8 +115,8 @@ export const PublicView = () => {
 
       {/* TELA 2: AGENDA DE JOGOS */}
       {activeView === "jogos" && (
-        <main className="view-content">
-          <h2 className="section-title">Programação e Resultados dos Jogos</h2>
+        <main className="view-content fade-in">
+          <h2 className="section-title">📅 Programação e Resultados dos Jogos</h2>
 
           {/* JOGOS EM ANDAMENTO */}
           <section className="games-section live-section">
