@@ -280,3 +280,253 @@ button:hover {
   button { width: 100%; }
   .medal-table td, .medal-table th { font-size: 1rem; padding: 8px; }
 }
+
+
+
+/* ==========================================================================
+   PAINEL ADMINISTRATIVO - RESPONSIVO & TOUCH FRIENDLY
+   ========================================================================== */
+
+/* Topbar Administrativa */
+.admin-header {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-title-group h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-blue-primary);
+}
+
+.admin-title-group p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.btn-logout {
+  background-color: #FEE2E2;
+  color: var(--color-red-accent);
+  border: 1px solid #FCA5A5;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-logout:hover {
+  background-color: var(--color-red-accent);
+  color: #FFFFFF;
+}
+
+/* Navegação por Abas (Deslizante no Mobile) */
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.admin-tabs::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.tab-btn {
+  white-space: nowrap;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 20px;
+  background-color: #E2E8F0;
+  color: var(--text-secondary);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background-color: var(--color-blue-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(2, 56, 201, 0.25);
+}
+
+/* Cartões de Formulário e Edição */
+.admin-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.admin-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-blue-primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mode-badge {
+  font-size: 0.75rem;
+  background-color: #FEF3C7;
+  color: #D97706;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Layouts de Formulário Responsivo */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Garante inputs confortáveis ao toque em telas menores */
+.admin-card input, 
+.admin-card select {
+  min-height: 48px;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: var(--color-green-primary);
+  color: #FFFFFF;
+  border: none;
+  flex: 1;
+}
+
+.btn-primary:hover {
+  background-color: #00882C;
+}
+
+.btn-secondary {
+  background-color: #64748B;
+  color: #FFFFFF;
+  border: none;
+}
+
+/* Lista de Itens em formato Card (Grid Responsivo) */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  list-style: none;
+}
+
+.item-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.item-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Badges para Status */
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.status-agendado { background-color: #E0F2FE; color: #0369A1; }
+.status-em_andamento { background-color: #FEE2E2; color: #DC2626; }
+.status-encerrado { background-color: #DCFCE7; color: #15803D; }
+
+/* Botões de Ação na Lista */
+.item-actions {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.btn-sm {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  min-height: auto;
+  flex: 1;
+}
+
+.btn-edit {
+  background-color: #EFF6FF;
+  color: var(--color-blue-primary);
+  border: 1px solid #BFDBFE;
+}
+
+.btn-delete {
+  background-color: #FEF2F2;
+  color: var(--color-red-accent);
+  border: 1px solid #FECACA;
+}
+
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-logout {
+    width: 100%;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+}
+

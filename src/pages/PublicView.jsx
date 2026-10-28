@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import logoJogos from "../assets/logo-jogos.jpg";
 import {
   subscribeDelegacoes,
   subscribeModalidades,
@@ -63,7 +64,7 @@ export const PublicView = () => {
       <header className="public-header">
         <div className="logo-wrapper">
           <img 
-            src="/logo-jogos.jpg" 
+            src={logoJogos} 
             alt="IV Jogos dos Servidores IFSertãoPE 2026" 
             className="brand-logo"
           />
