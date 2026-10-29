@@ -592,3 +592,115 @@ button:hover {
   }
 }
 
+/* ==========================================================================
+   TELA DE LOGIN ADMINISTRATIVO
+   ========================================================================== */
+.login-wrapper {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-logo {
+  max-height: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+.login-header h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-blue-primary);
+  margin-top: 6px;
+}
+
+.login-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-form label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-form input {
+  min-height: 48px;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+}
+
+.btn-login {
+  background-color: var(--color-blue-primary);
+  color: #FFFFFF;
+  border: none;
+  min-height: 48px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-top: 8px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #012BA1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 56, 201, 0.25);
+}
+
+.btn-login:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-error {
+  background-color: #FEF2F2;
+  color: var(--color-red-accent);
+  border: 1px solid #FECACA;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  text-align: center;
+  font-weight: 600;
+}
