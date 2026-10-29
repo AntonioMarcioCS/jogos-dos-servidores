@@ -56,8 +56,9 @@ export const AdminDashboard = () => {
   const handleSaveDelegacao = async (e) => {
     e.preventDefault();
     if (!delForm.nome || !delForm.sigla) return;
-    const payload = { nome: delForm.nome, sigla: delForm.sigla.toUpperCase(), logoUrl: delForm.logoUrl };
-    delForm.id ? await updateDelegacao(delForm.id, payload) : await addDelegacao(payload);
+    const { id, ...payload } = delForm;
+    payload.sigla = payload.sigla.toUpperCase();
+    id ? await updateDelegacao(id, payload) : await addDelegacao(payload);
     setDelForm({ id: null, nome: "", sigla: "", logoUrl: "" });
   };
 
@@ -65,7 +66,8 @@ export const AdminDashboard = () => {
   const handleSaveModalidade = async (e) => {
     e.preventDefault();
     if (!modForm.nome) return;
-    modForm.id ? await updateModalidade(modForm.id, modForm) : await addModalidade(modForm);
+    const { id, ...payload } = modForm;
+    id ? await updateModalidade(id, payload) : await addModalidade(payload);
     setModForm({ id: null, nome: "", genero: "M", faixaEtaria: "Livre", formato: "1v1" });
   };
 
@@ -73,7 +75,8 @@ export const AdminDashboard = () => {
   const handleSaveJogo = async (e) => {
     e.preventDefault();
     if (!jogoForm.modalidadeId || !jogoForm.dataHora || !jogoForm.local) return;
-    jogoForm.id ? await updateJogo(jogoForm.id, jogoForm) : await addJogo(jogoForm);
+    const { id, ...payload } = jogoForm;
+    id ? await updateJogo(id, payload) : await addJogo(payload);
     setJogoForm({ id: null, modalidadeId: "", dataHora: "", local: "", status: "agendado", delegacao1Id: "", delegacao2Id: "", placar1: "0", placar2: "0", descricaoGrupo: "" });
   };
 
@@ -81,9 +84,10 @@ export const AdminDashboard = () => {
   const handleSavePremiacao = async (e) => {
     e.preventDefault();
     if (!premForm.modalidadeId) return;
+    const { id, ...payload } = premForm;
     const existente = premiacoes.find((p) => p.modalidadeId === premForm.modalidadeId);
-    const targetId = premForm.id || (existente ? existente.id : null);
-    await salvarPremiacao(targetId, premForm);
+    const targetId = id || (existente ? existente.id : null);
+    await salvarPremiacao(targetId, payload);
     setPremForm({ id: null, modalidadeId: "", ouroDelegacaoId: "", prataDelegacaoId: "", bronzeDelegacaoId: "" });
   };
 

@@ -6,6 +6,7 @@ import {
   subscribePremiacoes,
   calcularQuadroMedalhas,
 } from "../services/db";
+import logoJogos from "../assets/logo-jogos.jpg";
 
 export const PublicView = () => {
   const [delegacoes, setDelegacoes] = useState([]);
@@ -63,7 +64,7 @@ export const PublicView = () => {
       <header className="public-header clean-header">
         <div className="logo-wrapper">
           <img 
-            src="/logo-jogos.jpg" 
+            src={logoJogos} // <-- Uso da variável importada
             alt="IV Jogos dos Servidores IFSertãoPE 2026" 
             className="brand-logo"
           />
